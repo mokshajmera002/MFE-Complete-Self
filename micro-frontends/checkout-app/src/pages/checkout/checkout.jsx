@@ -190,7 +190,7 @@ const Logo = React.lazy(() => import("containerApp/Logo"));
 const CopyRight = React.lazy(() => import("containerApp/CopyRight"));
 
 const CheckoutForm = () => {
-
+    console.log(useCart());
     const { register, handleSubmit, formState } = useForm();
     const { isLoading, error, placeOrder } = OrderService();
     const { cart, cartError, isProcessingCart, getCartInformation } = useCart();//useContext(CartContext);
@@ -305,7 +305,7 @@ const CheckoutForm = () => {
                     <summary>
                         <h2>Order summary</h2>
                         <hr />
-                        {cart?.cartItems.map((cartItem) => (
+                        {cart?.cartItems && cart?.cartItems.map((cartItem) => (
                             <div className="product" key={cartItem.productId}>
                                 <img src={`${cartItem.imageUrl}`} alt={cartItem.productName} />
                                 <div className="product-info">

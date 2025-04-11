@@ -82,7 +82,7 @@ function Cart({ isCartOpen, onClose }) {
         <>
             <div className={isCartOpen ? "shoppingCart active" : "shoppingCart"}>
                 <div className="header">
-                    <h2>Your cart</h2>
+                    <h2>Cart</h2>
                     <div className="btn close-btn" onClick={onClose}>
                         <AiOutlineClose size={20} />
                     </div>

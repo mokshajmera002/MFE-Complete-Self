@@ -71,10 +71,10 @@ footer button {
 }
 footer input {
     padding: 10px;
-    background-color: var(--primary);
-    color: var(--body);
+    background-color: var(--body);
+    color: var(--black);
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     width: 300px;
 }
 

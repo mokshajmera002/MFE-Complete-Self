@@ -261,49 +261,47 @@
 // app-shell.jsx (in container-app)
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AppRoutes from './routes/routes.jsx'; // Assuming your routes.jsx is in the same directory
+import AppRoutes from './routes/routes.jsx';
 import { AuthProvider } from './context/auth.context.jsx';
 import { CartProvider } from './context/cart.contect.jsx';
+import GenericErrorFallback from './components/genericErrorFallBack/genericErrorFallBack'; // Assuming you have this
 
 const AppShell = () => {
   return (
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
-          {/* <RouterProvider> */}
-          <AppRoutes />
-          {/* </RouterProvider> */}
+          <ErrorBoundary fallback={<GenericErrorFallback message="An error occurred while loading a part of the application." />}>
+            <AppRoutes />
+          </ErrorBoundary>
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );
 };
 
-export default AppShell;
-
-
-
 class ErrorBoundary extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = { hasError: false };
+    super(props);
+    this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error) {
-      return { hasError: true };
+    return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
-      console.error('Error in ErrorBoundary:', error, errorInfo);
+    console.error('Error in ErrorBoundary:', error, errorInfo);
   }
 
   render() {
-      if (this.state.hasError) {
-          return this.props.fallback;
-      }
-
-      return this.props.children;
+    if (this.state.hasError) {
+      return this.props.fallback;
+    }
+    return this.props.children;
   }
 }
+
+export default AppShell;
 
 // export default App;

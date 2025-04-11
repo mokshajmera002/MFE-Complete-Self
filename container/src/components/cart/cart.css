@@ -14,6 +14,7 @@
     transition: 0.2s;
     z-index: 5;
     border-left: 2px solid var(--primary);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .shoppingCart.active {
@@ -27,6 +28,19 @@
     padding: 10px;
     justify-content: space-between;
     align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--light);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Subtle separator */
+}
+
+.header h2 {
+    font-size: 1.5rem;
+    color: var(--black);
+    margin: 0;
+    align-self: center;
 }
 
 .close-btn {
