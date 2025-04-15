@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useState, Suspense } from 'react';
 
 // Lazy load Logo component
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 function NotFound() {
     return (

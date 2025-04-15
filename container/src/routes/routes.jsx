@@ -76,7 +76,7 @@ import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/auth.context.jsx';
 import Loading from '../components/loading/loading.jsx';
-import Cart from '../components/cart/cart.jsx';
+// import Cart from '../components/cart/cart.jsx';
 
 // Micro‑frontends (remotes)
 const Home                     = lazy(() => import('home_app/Home'));
@@ -91,6 +91,7 @@ const RegistrationVerification = lazy(() => import('auth_app/RegistrationVerific
 const RegistrationSuccessful   = lazy(() => import('auth_app/RegistrationSuccessful'));
 const Unauthorized             = lazy(() => import('auth_app/Unauthorized'));
 const NotFound                 = lazy(() => import('auth_app/NotFound'));
+// const Cart                 = lazy(() => import('sharedApp/Cart'));
 
 // Guest‑only: redirect to “/” if already logged in
 const GuestRoute = () => {
@@ -150,14 +151,14 @@ export default function AppRoutes() {
           </Suspense>
         }
       />
-      <Route
+      {/* <Route
         path="/cart"
         element={
           <Suspense fallback={<Loading />}>
             <Cart />
           </Suspense>
         }
-      />
+      /> */}
       <Route
         path="/unauthorized"
         element={

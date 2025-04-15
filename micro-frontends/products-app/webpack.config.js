@@ -43,6 +43,7 @@ module.exports = {
       },
       remotes: {
         containerApp: 'containerApp@http://localhost:3000/remoteEntryContainer.js', // Reference to the host app's remote entry
+        sharedApp: 'sharedApp@http://localhost:3009/remoteEntryShared.js', // Reference to the shared app's remote entry
       },
       shared: {
         react: { singleton: true, requiredVersion: '^19.1.0' }, // Match container's React version

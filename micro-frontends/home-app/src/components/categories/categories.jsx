@@ -2,11 +2,11 @@
 import './categories.css'
 import { useNavigate } from 'react-router-dom'
 // import ProductService from '../../api-service/product.service'
-import ProductService from "containerApp/ProductService";
+import ProductService from "sharedApp/ProductService";
 // import Loading from '../loading/loading'
 import React, { useEffect, Suspense } from 'react';
 
-const Loading = React.lazy(() => import("containerApp/Loading"));
+const Loading = React.lazy(() => import("sharedApp/Loading"));
 
 function Categories() {
 

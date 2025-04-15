@@ -8,6 +8,7 @@ function AuthService() {
     const [response, setResponse] = useState(null);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    console.log("inside auth service shared-app");
 
     const login = async (email, password) => {
         console.log(email, password)

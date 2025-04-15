@@ -257,7 +257,7 @@ import {useForm} from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 // import Logo from "../../../components/logo/logo";
 // import AuthService from "../../../api-service/auth.service";
-import AuthService from "containerApp/AuthService";
+import AuthService from "sharedApp/AuthService";
 import React, { useContext, useEffect, Suspense } from "react";
 // import { AuthContext } from "../../../contexts/auth.context";
 import { useAuth } from "containerApp/AuthContext"; // Import the hook
@@ -265,7 +265,7 @@ import { useCart } from "containerApp/CartContext";
 
 
 // Lazy load Logo component
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 function Login() {
 

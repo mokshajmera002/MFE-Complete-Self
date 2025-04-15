@@ -9,6 +9,7 @@ function OrderService() {
     const [userOrders, setUserOrders] = useState([])
     const user = JSON.parse(localStorage.getItem("user"));
     const navigate = useNavigate()
+    console.log("inside order service shared-app");
 
     const authHeader = () => {
         return { Authorization: `${user?.type}${user?.token}` };

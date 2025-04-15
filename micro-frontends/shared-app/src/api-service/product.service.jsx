@@ -7,6 +7,7 @@ function ProductService() {
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
+    console.log("inside product service shared-app");
 
     const getAllCategories = async () => {
         setLoading(true)

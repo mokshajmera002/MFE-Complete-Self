@@ -41,7 +41,7 @@ import success from "../../assets/images/icons/success.gif"
 import './checkout.css'
 
 // Dynamically import Header from the container app (host)
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 function OrderSuccess() {
 

@@ -139,19 +139,20 @@
 import './products.css';
 import { BrowserRouter, useLocation, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState, Suspense } from 'react';
-import ProductService from "containerApp/ProductService";
+import ProductService from "sharedApp/ProductService";
 // import { useAuth } from "containerApp/AuthContext";
 import { AuthContext } from "containerApp/AuthContext";
 import CartContext from "containerApp/CartContext";
 import { useCart } from "containerApp/CartContext"; // Import the hook
 import { useAuth } from "containerApp/AuthContext"; // Import the hook
-import CartService from "containerApp/CartService";
+// import CartService from "containerApp/CartService";
 import React from 'react';
 
-const Header = React.lazy(() => import("containerApp/Header"));
-const Footer = React.lazy(() => import("containerApp/Footer"));
-const Loading = React.lazy(() => import("containerApp/Loading"));
-const Info = React.lazy(() => import("containerApp/Info"));
+const Header = React.lazy(() => import("sharedApp/Header"));
+const Footer = React.lazy(() => import("sharedApp/Footer"));
+const Loading = React.lazy(() => import("sharedApp/Loading"));
+const Info = React.lazy(() => import("sharedApp/Info"));
+const ProductModal = React.lazy(() => import("sharedApp/ProductModal"));
 
 function Products() {
     // const {user, toggleUser} = useAuth();
@@ -246,6 +247,7 @@ function ProductsWrapper({ products }) {
     const { user } = useAuth();//useContext(AuthContext);
     const [isLoading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const onAddToCart = async (productId) => {
         if (!user) {
@@ -258,27 +260,83 @@ function ProductsWrapper({ products }) {
         setLoading(false);
     };
 
+    const onAddToWishlist = async (productId) => {
+        if (!user) {
+          navigate("/auth/login");
+          return;
+        }
+        setLoading(true);
+        await addItemToCart(productId, 1, true); // 👈 set wishlist = true
+        setLoading(false);
+      };
+  
+    const onProductClick = (product) => {
+      setSelectedProduct(product);
+    };
+//  used till last complete
+    // return (
+    //     <section className="products-container">
+    //         <div className="products-wrapper">
+    //             {isLoading ? (
+    //                 <Suspense fallback={<div>Loading...</div>}><Loading /></Suspense>
+    //             ) : (
+    //                 products.map((product) => (
+    //                     <div className="box" key={product.id}>
+    //                         <img src={`${product.imageUrl}`} className="image" alt="product" />
+    //                         <div className="price" aria-label="image">
+    //                             Rs. {product.price}
+    //                         </div>
+    //                         <div className="text-part">
+    //                             <div className="name">{product.productName}</div>
+    //                             <div className="description">{product.description}</div>
+    //                         </div>
+    //                         <button onClick={() => onAddToCart(product.id)}>Add to cart</button>
+    //                     </div>
+    //                 ))
+    //             )}
+    //         </div>
+    //     </section>
+    // );
     return (
         <section className="products-container">
-            <div className="products-wrapper">
-                {isLoading ? (
-                    <Suspense fallback={<div>Loading...</div>}><Loading /></Suspense>
-                ) : (
-                    products.map((product) => (
-                        <div className="box" key={product.id}>
-                            <img src={`${product.imageUrl}`} className="image" alt="product" />
-                            <div className="price" aria-label="image">
-                                Rs. {product.price}
-                            </div>
-                            <div className="text-part">
-                                <div className="name">{product.productName}</div>
-                                <div className="description">{product.description}</div>
-                            </div>
-                            <button onClick={() => onAddToCart(product.id)}>Add to cart</button>
-                        </div>
-                    ))
-                )}
-            </div>
+          <div className='products-wrapper'>
+            {isLoading ? <Loading /> :
+              products.map((product) => (
+                  <div className='box' key={product.id}>
+                  <img
+                    src={`${product.imageUrl}`}
+                    className="image"
+                    alt='product'
+                    onClick={() => onProductClick(product)}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className='price' aria-label='image'>Rs. {product.price}</div>
+                  <div className='text-part'>
+                    <div className='name'>{product.productName}</div>
+                    <div className='description'>{product.description}</div>
+                  </div>
+                
+                  {/* Buttons row */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <button className="add-to-cart-button" onClick={() => onAddToCart(product.id)}>
+    Add to cart
+  </button>
+                    <button className="wishlist-button" onClick={() => onAddToWishlist(product.id)}>
+                      <i className="fa fa-heart"></i>
+                    </button>
+                  </div>
+                </div>
+                
+              ))
+            }
+          </div>
+    
+          {selectedProduct && (
+            <ProductModal
+              product={selectedProduct}
+              onClose={() => setSelectedProduct(null)}
+            />
+          )}
         </section>
-    );
+      );
 }

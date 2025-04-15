@@ -50,21 +50,23 @@ module.exports = {
         search_app: 'search_app@http://localhost:3004/remoteEntrySearch.js',
         myaccount_app: 'myaccount_app@http://localhost:3006/remoteEntryMyaccount.js',
         checkout_app: 'checkout_app@http://localhost:3005/remoteEntryCheckout.js',
+        sharedApp: 'sharedApp@http://localhost:3009/remoteEntryShared.js', // Reference to the shared app's remote entry
       },
       exposes: {
-        './Header': './src/components/header/header.jsx',  // Exposing the Header component
-        './Footer': './src/components/footer/footer.jsx',  // Exposing the Footer component
-        './CopyRight': './src/components/footer/copyright.jsx',  // Exposing the Footer component
-        './Loading': './src/components/loading/loading.jsx',  // Exposing the Loading component
-        './Info': './src/components/info/info.jsx',  // Exposing the Info component
-        './Logo': './src/components/logo/logo.jsx',  // Exposing the Info component
+      //   './Header': './src/components/header/header.jsx',  // Exposing the Header component
+      //   './Footer': './src/components/footer/footer.jsx',  // Exposing the Footer component
+      //   './CopyRight': './src/components/footer/copyright.jsx',  // Exposing the Footer component
+      //   './Loading': './src/components/loading/loading.jsx',  // Exposing the Loading component
+      //   './Info': './src/components/info/info.jsx',  // Exposing the Info component
+      //   './Logo': './src/components/logo/logo.jsx',  // Exposing the Info component
+      //   './ProductModal': './src/components/product-modal/ProductModal.jsx',  // Exposing the Info component
         './AuthContext': './src/context/auth.context.jsx',
         './CartContext': './src/context/cart.contect.jsx',
         // './RouterContext': './src/context/routes.context.jsx',
-        './CartService': './src/api-service/cart.service.jsx',
-        './AuthService': './src/api-service/auth.service.jsx',
-        './ProductService': './src/api-service/product.service.jsx',
-        './OrderService': './src/api-service/order.service.jsx',
+        // './CartService': './src/api-service/cart.service.jsx',
+        // './AuthService': './src/api-service/auth.service.jsx',
+        // './ProductService': './src/api-service/product.service.jsx',
+        // './OrderService': './src/api-service/order.service.jsx',
       },
       shared: {
         react: { singleton: true, requiredVersion: '^19.1.0' },

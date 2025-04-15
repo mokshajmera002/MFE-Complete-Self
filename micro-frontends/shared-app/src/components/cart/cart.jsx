@@ -1,18 +1,18 @@
 import React, { useContext, useEffect, useState, useCallback, useRef } from 'react';
 import './cart.css'
-import CartContext from '/src/context/cart.contect';
 import { AiOutlineClose, AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Loading from '../loading/loading';
 import Info from '../info/info';   //'../info/info';
-import { AuthContext } from '/src/context/auth.context';
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/auth.context"; // Import the hook
-import { useCart } from "../../context/cart.contect"; // Import the hook
+// import { useAuth } from "../../context/auth.context"; // Import the hook
+// import { useCart } from "../../context/cart.contect"; // Import the hook
+import { useAuth } from "containerApp/AuthContext"; // Import the hook
+import { useCart } from "containerApp/CartContext"; // Import the hook
 
 function Cart({ isCartOpen, onClose }) {
 
-    const { cart, cartError, isProcessingCart, addItemToCart, removeItemFromCart, getCartInformation } = useCart();//useContext(CartContext)
+    const { cart,wishlist, cartError, isProcessingCart, addItemToCart, removeItemFromCart, getCartInformation, getWishlistInformation,removeWishlistItemFromCart } = useCart();//useContext(CartContext)
     const {user, toggleUser} = useAuth();//useContext(AuthContext);
     const navigate = useNavigate();
     const isFetchingRef = useRef(false);

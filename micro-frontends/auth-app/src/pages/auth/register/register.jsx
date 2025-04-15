@@ -381,11 +381,11 @@ import React, {useRef, Suspense} from 'react';
 import {useForm} from 'react-hook-form';
 import { Link} from 'react-router-dom';
 // import AuthService from '../../../api-service/auth.service';
-import AuthService from "containerApp/AuthService";
+import AuthService from "sharedApp/AuthService";
 // import Logo from '../../../components/logo/logo';
 
 // Lazy load Logo component
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 
 function Register() {

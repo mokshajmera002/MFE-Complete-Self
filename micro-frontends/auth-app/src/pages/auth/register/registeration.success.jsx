@@ -5,7 +5,7 @@ import React,{Suspense} from "react";
 import "../register/registeration.success.css"
 
 // Lazy load Logo component
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 function RegistrationSuccessful() {
     return(

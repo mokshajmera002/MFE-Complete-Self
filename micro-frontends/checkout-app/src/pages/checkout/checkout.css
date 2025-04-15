@@ -104,3 +104,28 @@ button.loading {
     box-shadow: 0 0 10px var(--light);
     padding: 10px;
 }
+.location-preview {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .location-preview h4 {
+    margin-bottom: 0.5rem;
+  }
+  /* .location-btn {
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .location-btn:hover {
+    background-color: #005fcc;
+  } */

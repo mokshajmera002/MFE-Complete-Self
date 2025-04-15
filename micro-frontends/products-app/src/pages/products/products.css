@@ -99,3 +99,13 @@
         min-width: 768px;
     }
 }
+
+/* sumit css*/
+.add-to-cart-button {
+    width: 250px; /* or any desired value */
+    
+  }
+  
+  /* .add-to-cart-button:hover {
+    background-color: #45a049;
+  } */

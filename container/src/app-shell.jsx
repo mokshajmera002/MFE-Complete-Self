@@ -264,6 +264,7 @@ import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/routes.jsx';
 import { AuthProvider } from './context/auth.context.jsx';
 import { CartProvider } from './context/cart.contect.jsx';
+// import { CartProvider } from 'sharedApp/CartContext';
 import GenericErrorFallback from './components/genericErrorFallBack/genericErrorFallBack'; // Assuming you have this
 
 const AppShell = () => {

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 // import Logo from "../../../components/logo/logo";
 
 // Lazy load Logo component
-const Logo = React.lazy(() => import("containerApp/Logo"));
+const Logo = React.lazy(() => import("sharedApp/Logo"));
 
 function Unauthorized() {
     return (

@@ -125,15 +125,15 @@ import React, { Suspense, useContext, useEffect } from "react";
 import { useAuth } from "containerApp/AuthContext"; // Import the hook
 import './my.css'
 // import OrderService from "../../api-service/order.service";
-import OrderService from "containerApp/OrderService";
+import OrderService from "sharedApp/OrderService";
 // import Loading from "../../components/loading/loading";
 // import Info from "../../components/info/info";
 
 // Dynamically import Header from the container app (host)
-const Header = React.lazy(() => import("containerApp/Header"));
-const Footer = React.lazy(() => import("containerApp/Footer"));
-const Info = React.lazy(() => import("containerApp/Info"));
-const Loading = React.lazy(() => import("containerApp/Loading"));
+const Header = React.lazy(() => import("sharedApp/Header"));
+const Footer = React.lazy(() => import("sharedApp/Footer"));
+const Info = React.lazy(() => import("sharedApp/Info"));
+const Loading = React.lazy(() => import("sharedApp/Loading"));
 
 
 function MyAccount() {

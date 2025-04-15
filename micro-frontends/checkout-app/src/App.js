@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react';
 import CheckoutForm from './pages/checkout/checkout';
 import { BrowserRouter } from 'react-router-dom';
+import 'leaflet/dist/leaflet.css';
 
 function App() {
   return (
