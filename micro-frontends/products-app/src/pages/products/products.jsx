@@ -165,12 +165,14 @@ function Products() {
         //     getCartInformation 
         // } = CartService();
     const { category } = useParams();
+    // const [currentCategory, setCurrentCategory] = useState("All");
     const location = useLocation();
     const { getAllCategories, getAllProducts, getProductsByCategory, isLoading, categories, products, error } = ProductService();
     // const { user, toggleUser } = useContext(AuthContext);
     // const { cart, cartError, isProcessingCart, addItemToCart, removeItemFromCart, getCartInformation } = useContext(CartContext);
 
     useEffect(() => {
+        console.log("Category from useParams in Products:", category);
         getAllCategories();
         if (location.state) {
             getProductsByCategory(location.state.categoryId);
@@ -193,6 +195,7 @@ function Products() {
                         {error && <Info message="Unable to display product right now. Try again later..." />}
                         {!isLoading && !error && (
                             <>
+                                console.log("category: ",category)
                                 <CategoryWrapper category={category} categoryList={categories} />
                                 <ProductsWrapper products={products} />
                             </>
@@ -213,6 +216,10 @@ export default Products;
 function CategoryWrapper({ category, categoryList }) {
     const navigate = useNavigate();
 
+    useEffect(() => {
+        console.log("Category prop in CategoryWrapper:", category);
+      }, [category]);
+
     const onSelect = (categoryName, categoryId) => {
         categoryId
             ? navigate(`/products/${categoryName}`, { state: { categoryId: categoryId } })
@@ -223,7 +230,8 @@ function CategoryWrapper({ category, categoryList }) {
         <section className="category-wrapper">
             <div className="category-list">
                 <div
-                    className={category === "All" ? "category active" : "category"}
+                    // className={category === "All" ? "category active" : "category"}
+                    className={category === "All" || category === undefined ? "category active" : "category"}
                     onClick={() => onSelect("All")}
                 >
                     All

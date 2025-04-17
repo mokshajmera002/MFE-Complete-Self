@@ -137,6 +137,16 @@ export default function AppRoutes() {
       />
       <Route
         path="/products/*"
+        // path="/products/:category"
+        element={
+          <Suspense fallback={<Loading />}>
+            <Products />
+          </Suspense>
+        }
+      />
+      <Route
+        //path="/products/*"
+        path="/products/:category"
         element={
           <Suspense fallback={<Loading />}>
             <Products />

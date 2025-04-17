@@ -53,6 +53,7 @@ module.exports = {
         './AuthService': './src/api-service/auth.service.jsx',
         './ProductService': './src/api-service/product.service.jsx',
         './OrderService': './src/api-service/order.service.jsx',
+        './PaymentService': './src/api-service/payment.service.jsx',
       },
       remotes: {
         containerApp: 'containerApp@http://localhost:3000/remoteEntryContainer.js', // Reference to the host app's remote entry

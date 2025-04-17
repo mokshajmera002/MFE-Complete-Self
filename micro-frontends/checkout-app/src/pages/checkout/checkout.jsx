@@ -186,6 +186,8 @@ import { useCart } from "containerApp/CartContext"; // Import the hook
 import { Link } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
+// import CheckoutService from '../../api-service/Checkout.service'; // Import CheckoutService
+import PaymentService from 'sharedApp/PaymentService'; // Import CheckoutService
 
 // Dynamically import Header from the container app (host)
 const Logo = React.lazy(() => import("sharedApp/Logo"));
@@ -290,9 +292,15 @@ const CheckoutForm = () => {
     const { cart, cartError, isProcessingCart, getCartInformation } = useCart();//useContext(CartContext);
     const [detectedAddress, setDetectedAddress] = useState("");
     const [mapCoords, setMapCoords] = useState(null);
+    const { checkoutLoading, checkoutError, initiateCheckout } = PaymentService(); // Us
 
     const onSubmit = async (data) => {
         placeOrder(data, cart.cartId)
+        try{
+        await initiateCheckout(cart.subtotal,"Order Payment");
+        }catch(error){
+          console.log("Payment failed due to: ",error);
+        }
     };
 
     const getUserLocation = () => {

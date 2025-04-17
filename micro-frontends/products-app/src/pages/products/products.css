@@ -2,6 +2,7 @@
 .category-wrapper {
     width: 100%;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch; /* For smoother iOS scrolling */
 }
 .category-wrapper::-webkit-scrollbar {
     display: none;
@@ -12,6 +13,7 @@
     justify-content: left;
     gap: 20px;
     min-width: 768px;
+    margin-top: 12px;
 }
 .category {
     padding: 8px 15px;
