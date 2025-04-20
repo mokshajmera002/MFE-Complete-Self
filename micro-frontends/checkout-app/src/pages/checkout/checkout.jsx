@@ -295,9 +295,10 @@ const CheckoutForm = () => {
     const { checkoutLoading, checkoutError, initiateCheckout } = PaymentService(); // Us
 
     const onSubmit = async (data) => {
-        placeOrder(data, cart.cartId)
+        // placeOrder(data, cart.cartId)
         try{
         await initiateCheckout(cart.subtotal,"Order Payment");
+        placeOrder(data, cart.cartId)
         }catch(error){
           console.log("Payment failed due to: ",error);
         }

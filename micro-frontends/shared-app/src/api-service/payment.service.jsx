@@ -24,13 +24,13 @@ function PaymentService() {
       console.log("Initiating checkout...");
       
       const response = await axios.post(
-        `http://localhost:9060/cart/checkout`, // ✅ Fixed API endpoint
+        `http://172.17.48.111:9060/cart/checkout`, // ✅ Fixed API endpoint  //ip of backend
         {
           userId: user?.id,
           amount: amount,
           description: description,
-          successUrl: "/success",//"http://localhost:5173/order/success",
-          cancelUrl: "/",//"http://localhost:5173/",
+          successUrl: "http://localhost:3000/success",
+          cancelUrl: "http://localhost:5173/",
         },
         { headers: authHeader() }
       );
