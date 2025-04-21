@@ -125,7 +125,9 @@ function Header() {
                 <Link onClick={toggleWishlist} className="nav-link">
                 {/* Wishlist   */}
                     <i className="fa fa-heart" aria-hidden="true"></i>
-                    <span>({wishlist?.noOfCartItems || wishlist?.cartItems?.length || 0})</span> 
+                    <span>
+                        {/* ({wishlist?.noOfCartItems || wishlist?.cartItems?.length || 0}) */}
+                    </span> 
                 </Link>
 
                 <div>
