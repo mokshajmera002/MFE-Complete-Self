@@ -11,7 +11,7 @@ A Micro-Frontend Project of E-Commerce in React js
    ```
    npm i
    ```
-4. Do the [ackage installation by ``` npm i ``` command by going to their path for all remote-apps as well
+4. Do the package installation by ``` npm i ``` command by going to their path for all remote-apps as well
 5. To run the apps below are the commands
      - For Container-app : ``` npm run container:start```
      - For Remote-Apps : ``` npm start ```
